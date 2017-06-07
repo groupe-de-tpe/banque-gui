@@ -1,0 +1,46 @@
+select * from customer where id = ?
+select customer.id from users, customer where users.id = customer.user_id and username = ?
+select * from users where username = ? and status = ?
+update account set balance = balance + ? where accountNumber = ?
+update account set balance = balance - ? where accountNumber = ?
+select accountNumber from account where customer_id = ?
+
+insert into operations (operationType, dateOperation,description,account_id,user_id) values(?,?,?,?,?)
+
+select * from account where accountNumber = ?
+select balance from account where accountNumber = ?
+select accountNumber from account where customer_id=?
+select operations.*, account.accountNumber, users.username from operations, account, users where operations.account_id=account.id and operations.user_id=users.id
+select operations.*, account.accountNumber, users.username from operations, account, users where operations.account_id=account.id and operations.user_id=users.id [ and accountNumber = ? and  and operationType = ?  and dateOperation >= ?  and dateOperation <= ?]
+select accountNumber from account where customer_id=?
+select * from account where customer_id=?
+select * from users where status = ?
+update users set status = ? where id = ?
+update users set passwd = ? where id = ?
+select * from users where status = ? [ and and username like '%name% and and role = ?]
+select operations.*, account.accountNumber, users.username from operations, account, users where account.id = operations.account_id and users.id = operations.user_id
+select operations.*, account.accountNumber, users.username from operations, account, users where operations.account_id=account.id and operations.user_id=users.id [and  and accountNumber like '%name% and  and username like '%nom% and  and operationType = ? and  and dateOperation >= ? and  and dateOperation <= ?]
+insert into users (username,passwd,role) values(?,?,?)
+
+update account set balance = balance + ? where accountNumber = ?
+insert into operations(operationType, dateOperation,description,account_id, user_id) values (?,?,?,?,?)
+
+select * from account where accountNumber = ?
+update account set balance = balance - ? where accountNumber = ?
+insert into operations(operationType, dateOperation,description,account_id, user_id) values (?,?,?,?,?)
+
+select * from account where accountNumber = ?
+update account set type=? , accountNumber=? where id =?
+insert into account(accountNumber,balance,dateCreation,type, customer_id) values(?,?,?,?,?)
+insert into customer(name,emailAddress, phoneNumber, user_id) values (?,?,?,?)
+insert into users(username, passwd, role) values (?,?,?)
+update customer set name =?, emailAddress=?, phoneNumber=? where id = ?
+select account.*, customer.name  from account, customer where account.id = ? and account.customer_id = customer.id
+
+select * from customer where status = ?
+update customer set status = ? where id = ?
+select * from customer where status = ? and name like ?
+select account.*, customer.name from account, customer where customer.id = account.customer_id and account.status = ?[ and name like %nom% and accountNumber like %nom% and type = ?]
+update account set status = ? where accountNumber = ?
+insert into operations(operationType,dateOperation,description,account_id, user_id) values(?,?,?,?,?)
+select account.*, customer.name from account, customer where account.customer_id = customer.id and account.status = ?
